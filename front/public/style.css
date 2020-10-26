@@ -2,10 +2,52 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
 a {
   color: #00b7ff;
 }
 
 form {
-  margin: 100px;
+  margin: 100px 20%;
+}
+/* 
+table {
+  margin-top: 100px;
+} */
+
+td img {
+  max-height: 100px;
+}
+
+.table-header {
+  margin: 20px 0 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.table-header h4 {
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.movie-info h3 {
+  margin-top: 30px;
+}
+
+.movie-container {
+  margin-top: 20px;
+  display: flex;
+}
+
+.movie-container .content {
+  flex: 3;
+  padding: 10px;
+  /* text-align: right; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.movie-container {
+  flex: 1;
 }

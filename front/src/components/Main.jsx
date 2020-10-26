@@ -1,6 +1,8 @@
 import React from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import NavBar from "./NavBar.jsx";
+import SearchMoviesContainer from "../containers/SearchMoviesContainer";
+import SingleMovieContainer from "../containers/SingleMovieContainer";
 import axios from "axios";
 
 import HomeContainer from "../containers/HomeContainer";
@@ -23,11 +25,13 @@ export default () => {
       <div>
         <Switch>
           <Route exact path='/' component={HomeContainer} />
+          <Route exact path='/search' component={SearchMoviesContainer} />
+          <Route path='/movies/:movieId' exact component={SingleMovieContainer} />
           {/* <Route exact path='/register' component={Register} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/forgot-password' component={ForgotPassword} />
         <Route path='/search' component={SearchMoviesContainer} />
-        <Route path='/movie/:movieId' exact component={SingleMovieContainer} />
+        
         <Route path='/favs' component={FavsContainer} />
         <Route path='/user/:userId/favs' component={UserFavsContainer} />
         <Route path='/user/:userId' component={SingleUserContainer} />
