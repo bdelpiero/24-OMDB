@@ -12,9 +12,9 @@ export default ({ movies, backToSearch }) => (
     <table className='table table-hover table-dark'>
       <thead>
         <tr>
+          <th></th>
           <th>Title</th>
           <th>Year</th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -22,14 +22,14 @@ export default ({ movies, backToSearch }) => (
           movies.map((movie) => (
             <tr key={movie.imdbID}>
               <td>
+                <img src={movie.Poster} alt=''></img>
+              </td>
+              <td>
                 <Link style={{ textDecoration: "none" }} to={`/movies/${movie.imdbID}`}>
                   {movie.Title}
                 </Link>
               </td>
               <td>{movie.Year}</td>
-              <td>
-                <img src={movie.Poster} alt=''></img>
-              </td>
             </tr>
           ))}
       </tbody>

@@ -11,9 +11,9 @@ const receiveMovie = (movie) => ({
   movie,
 });
 
-export const fetchMovies = ({ title = "", year = "", plot = "" }) => (dispatch) => {
+export const fetchMovies = ({ title = "", year = "", type = "" }) => (dispatch) => {
   return axios
-    .get(`http://www.omdbapi.com/?apikey=fa7732fb&s=${title}&y=${year}&plot=${plot}`)
+    .get(`http://www.omdbapi.com/?apikey=fa7732fb&s=${title}&y=${year}&type=${type}`)
     .then((res) => res.data)
     .then((movies) => dispatch(receiveMovies(movies.Search)))
     .catch((err) => console.log(err));

@@ -1,12 +1,10 @@
 import { combineReducers } from "redux";
 import moviesReducer from "./movies-reducer";
+import favsReducer from "./favs-reducer";
+import usersReducer from "./users-reducer";
 
 export default combineReducers({
   movies: moviesReducer,
-  // lyrics: lyricsReducer,
-  // player: playerReducer,
-  // albums: albumsReducer,
-  // artists: artistsReducer,
-  // playlists: playlistsReducer,
-  // songs: songsReducer,
+  favs: favsReducer,
+  users: usersReducer,
 });

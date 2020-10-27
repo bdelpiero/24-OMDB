@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { fetchMovies } from "../redux/actions/movies";
 
 import Home from "../components/Home";
 
-export default ({ history }) => {
+export default () => {
   const [data, setData] = useState({
     title: "",
     year: "",
-    plot: "short",
+    type: "",
   });
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const handleInputChange = (event) => {

@@ -3,12 +3,15 @@ import { Route, Redirect, Switch } from "react-router-dom";
 import NavBar from "./NavBar.jsx";
 import SearchMoviesContainer from "../containers/SearchMoviesContainer";
 import SingleMovieContainer from "../containers/SingleMovieContainer";
+import FavsContainer from "../containers/FavsContainer";
+import Login from "../components/Login";
+import Register from "../components/Register";
+import SingleUserContainer from "../containers/SingleUserContainer";
+import UsersContainer from "../containers/UsersContainer";
 import axios from "axios";
 
 import HomeContainer from "../containers/HomeContainer";
-// import Register from "./Register.jsx";
-// import Login from "./Login.jsx";
-// import ForgotPassword from "./ForgotPassword.jsx";
+import UserFavourites from "./UserFavourites.jsx";
 
 export default () => {
   // cheque la conexión con el back:
@@ -27,15 +30,12 @@ export default () => {
           <Route exact path='/' component={HomeContainer} />
           <Route exact path='/search' component={SearchMoviesContainer} />
           <Route path='/movies/:movieId' exact component={SingleMovieContainer} />
-          {/* <Route exact path='/register' component={Register} />
-        <Route exact path='/login' component={Login} />
-        <Route exact path='/forgot-password' component={ForgotPassword} />
-        <Route path='/search' component={SearchMoviesContainer} />
-        
-        <Route path='/favs' component={FavsContainer} />
-        <Route path='/user/:userId/favs' component={UserFavsContainer} />
-        <Route path='/user/:userId' component={SingleUserContainer} />
-        <Route path='/users' component={UsersContainer} /> */}
+          <Route path='/favs' component={FavsContainer} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/register' component={Register} />
+          <Route path='/user/:userId' component={SingleUserContainer} />
+          <Route path='/user/:userId/favs' component={UserFavourites} />
+          <Route path='/users' component={UsersContainer} />
           <Redirect to='/' />
         </Switch>
       </div>

@@ -14,7 +14,7 @@ export default ({ data, handleInputChange, handleSubmit }) => {
             type='text'
             className='form-control'
             id='inputTitle'
-            placeholder='Movie Title'
+            placeholder='Title'
             onChange={handleInputChange}
           />
         </div>
@@ -40,9 +40,10 @@ export default ({ data, handleInputChange, handleSubmit }) => {
           Plot
         </label>
         <div className='col-sm-10'>
-          <select name='plot' value={data.plot} id='selectPlot' onChange={handleInputChange}>
-            <option value='short'>Short</option>
-            <option value='full'>Full</option>
+          <select name='type' value={data.type} id='selectType' onChange={handleInputChange}>
+            <option value='movie'>Movie</option>
+            <option value='series'>Series</option>
+            <option value='episode'>Episode</option>
           </select>
         </div>
       </div>
