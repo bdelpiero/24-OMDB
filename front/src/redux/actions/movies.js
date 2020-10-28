@@ -1,7 +1,7 @@
 import axios from "axios";
 import { RECEIVE_MOVIES, RECEIVE_MOVIE } from "../constants";
 
-const receiveMovies = (movies) => ({
+export const receiveMovies = (movies) => ({
   type: RECEIVE_MOVIES,
   movies,
 });

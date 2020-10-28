@@ -15,7 +15,6 @@ export default () => {
 
   const favs = useSelector((state) => state.favs.list);
   const currentUser = useSelector((state) => getUser(state.users.list, userId));
-  console.log(currentUser);
 
   return <SingleUser user={currentUser} favs={favs} path={path} url={url} />;
 };

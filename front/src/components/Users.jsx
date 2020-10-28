@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({ users, backToHome }) => (
+export default ({ users, backToHome, userSearch }) => (
   <div>
     <div className='list-header'>
       <h4>Users: </h4>
+      <form className='form-group' style={{ marginTop: "20px" }}>
+        <input className='form-control' placeholder='Search user' {...userSearch} />
+      </form>
       <button className='btn btn-primary' onClick={backToHome}>
         Back to Home
       </button>

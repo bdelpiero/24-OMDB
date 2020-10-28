@@ -30,6 +30,13 @@ td img {
   margin-bottom: 0;
   padding: 0;
 }
+.table-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+.table-buttons .dropdown {
+  margin-right: 10px;
+}
 
 .movie-info {
   margin: 35px 10%;
