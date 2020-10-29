@@ -93,3 +93,28 @@ td img {
   margin: auto 10px;
   min-width: 100px;
 }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-right .nav-badge {
+  margin-left: 30px;
+}
+
+@media (max-width: 1000px) {
+  .nav-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-right .nav-badge {
+    margin-left: 0;
+  }
+}
+.navbar-brand h3 {
+  font-weight: bold;
+  padding: 0;
+  margin-bottom: 0;
+}

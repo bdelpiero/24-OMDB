@@ -6,6 +6,8 @@ import Main from "./components/Main";
 import { Provider } from "react-redux";
 import store from "./redux/store.js";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
 export const UserContext = createContext();
 
 const Root = () => {

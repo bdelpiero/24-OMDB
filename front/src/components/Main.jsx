@@ -3,7 +3,7 @@ import { Route, Redirect, Switch } from "react-router-dom";
 import { UserContext } from "../index";
 import axios from "axios";
 
-import NavBar from "./NavBar.jsx";
+import NavBarContainer from "../containers/NavBarContainer";
 import SearchMoviesContainer from "../containers/SearchMoviesContainer";
 import SingleMovieContainer from "../containers/SingleMovieContainer";
 import LoginContainer from "../containers/LoginContainer";
@@ -12,6 +12,8 @@ import SingleUserContainer from "../containers/SingleUserContainer";
 import UsersContainer from "../containers/UsersContainer";
 import HomeContainer from "../containers/HomeContainer";
 import UserFavourites from "./UserFavourites.jsx";
+
+import Button from "react-bootstrap/Button";
 
 export default () => {
   const { setUser } = useContext(UserContext);
@@ -29,7 +31,7 @@ export default () => {
   }, []);
   return (
     <div id='main'>
-      <NavBar />
+      <NavBarContainer />
       <div>
         <Switch>
           <Route exact path='/' component={HomeContainer} />

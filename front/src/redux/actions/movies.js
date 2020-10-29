@@ -15,7 +15,15 @@ export const fetchMovies = ({ title = "", year = "", type = "" }) => (dispatch) 
   return axios
     .get(`http://www.omdbapi.com/?apikey=fa7732fb&s=${title}&y=${year}&type=${type}`)
     .then((res) => res.data)
-    .then((movies) => dispatch(receiveMovies(movies.Search)))
+    .then((movies) => {
+      movies = movies.Search.map((movie) => {
+        return axios.get(`http://www.omdbapi.com/?apikey=fa7732fb&i=${movie.imdbID}`);
+      });
+      return Promise.all(movies);
+    })
+    .then((movies) => {
+      return dispatch(receiveMovies(movies.map((movie) => movie.data)));
+    })
     .catch((err) => console.log(err));
 };
 

@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import Dropdown from "react-bootstrap/Dropdown";
 
 export default ({ movies, backToSearch, handleClick, sortingKey }) => {
   return (
@@ -7,25 +9,14 @@ export default ({ movies, backToSearch, handleClick, sortingKey }) => {
       <div className='table-header'>
         <h4>Movies found: </h4>
         <div className='table-buttons'>
-          <div className='dropdown'>
-            <button
-              className='btn btn-primary dropdown-toggle'
-              type='button'
-              id='dropdownMenu2'
-              data-toggle='dropdown'
-              aria-haspopup='true'
-              aria-expanded='false'>
-              {sortingKey || "Order By"}
-            </button>
-            <div className='dropdown-menu' aria-labelledby='dropdownMenu2'>
-              <button className='dropdown-item' type='button' onClick={handleClick}>
-                Title
-              </button>
-              <button className='dropdown-item' type='button' onClick={handleClick}>
-                Year
-              </button>
-            </div>
-          </div>
+          <DropdownButton id='dropdown-basic-button' title={sortingKey || "Order By"}>
+            <Dropdown.Item onClick={handleClick} href='#/action-1'>
+              Year
+            </Dropdown.Item>
+            <Dropdown.Item onClick={handleClick} href='#/action-2'>
+              Metascore
+            </Dropdown.Item>
+          </DropdownButton>
           <button className='btn btn-primary' onClick={backToSearch}>
             Back to search
           </button>
@@ -37,6 +28,7 @@ export default ({ movies, backToSearch, handleClick, sortingKey }) => {
             <th></th>
             <th>Title</th>
             <th>Year</th>
+            <th>Metascore</th>
           </tr>
         </thead>
         <tbody>
@@ -54,6 +46,7 @@ export default ({ movies, backToSearch, handleClick, sortingKey }) => {
                     </Link>
                   </td>
                   <td>{movie.Year}</td>
+                  <td>{movie.Metascore}</td>
                 </tr>
               ))}
         </tbody>
