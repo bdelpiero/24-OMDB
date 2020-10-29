@@ -2,6 +2,18 @@ const express = require("express");
 const router = express.Router();
 const { User, Favourite } = require("../models/index");
 const passport = require("passport");
+const usersRouter = require("./users");
+const favsRouter = require("./favs");
+
+const isLoggedIn = (req, res, next) => {
+  if (!req.user) {
+    return res.sendStatus(401);
+  }
+  next();
+};
+
+router.use("/users", isLoggedIn, usersRouter);
+router.use("/favs", isLoggedIn, favsRouter);
 
 router.post("/register", (req, res) => {
   User.create(req.body).then((user) => res.status(201).send(user));
@@ -22,39 +34,6 @@ router.get("/me", (req, res) => {
   }
 
   res.send(req.user);
-});
-
-router.get("/users", (req, res, next) => {
-  User.findAll({})
-    .then((users) => res.json(users))
-    .catch(next);
-});
-
-router.delete("/users/:id", (req, res, next) => {
-  console.log(req.params.id);
-  User.findByPk(req.params.id)
-    .then((user) => user.destroy())
-    .then(() => res.sendStatus(204))
-    .catch(next);
-});
-
-router.get("/favs", (req, res, next) => {
-  Favourite.findAll({})
-    .then((favourites) => res.json(favourites))
-    .catch(next);
-});
-
-router.post("/favs", (req, res, next) => {
-  Favourite.create({ ...req.body.movie, userId: req.user.id })
-    .then((favourite) => res.status(201).send(favourite))
-    .catch(next);
-});
-
-router.delete("/favs/:id", (req, res, next) => {
-  Favourite.findByPk(req.params.id)
-    .then((fav) => fav.destroy())
-    .then(() => res.sendStatus(204))
-    .catch(next);
 });
 
 router.use("/", function (req, res) {

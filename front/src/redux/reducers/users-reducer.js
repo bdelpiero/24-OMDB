@@ -1,16 +1,15 @@
-import { RECEIVE_USER, RECEIVE_USERS } from "../actions/users";
+import { RECEIVE_USER, RECEIVE_USERS, ADD_TO_USERS } from "../constants";
 
 const initialState = {
-  list: [
-    { id: 1, userName: "Juan", age: 34, email: "test@mail.com" },
-    { id: 2, userName: "Tomás", age: 23, email: "test1@mail.com" },
-    { id: 3, userName: "Martín", age: 30, email: "test2@mail.com" },
-  ],
+  list: [],
   selected: {},
 };
 
 export default (state = initialState, action) => {
+  console.log("users");
   switch (action.type) {
+    case ADD_TO_USERS:
+      return { ...state, list: [...state.list, action.user] };
     case RECEIVE_USER:
       return {
         ...state,

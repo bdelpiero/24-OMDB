@@ -5,6 +5,6 @@ import usersReducer from "./users-reducer";
 
 export default combineReducers({
   movies: moviesReducer,
-  favs: favsReducer,
   users: usersReducer,
+  favs: favsReducer,
 });

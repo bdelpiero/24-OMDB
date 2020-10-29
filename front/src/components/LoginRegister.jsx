@@ -1,17 +1,10 @@
 import React from "react";
-import { useInput } from "../utils/custom-hooks";
 
-export default ({}) => {
-  /* useInput trae un objeto con tres propiedades.
-  Lo desestructuramos en el <input> y con eso
-  le agregamos los atributos name, onChange y value
-  */
-  const email = useInput("email");
-  const password = useInput("password");
+export default ({ userName = "", email, password, isRegister = false, handleSubmit }) => {
   return (
     <div className='card login-register'>
       <article className='card-body'>
-        <h4 className='card-title mb-4 mt-1'>Login</h4>
+        <h4 className='card-title mb-4 mt-1'>{isRegister ? "Register" : "Login"}</h4>
         <p>
           <a href='' className='btn btn-block btn-outline-info'>
             {" "}
@@ -23,26 +16,32 @@ export default ({}) => {
           </a>
         </p>
         <hr />
-        <form style={{ margin: "50px 5%" }}>
+        <form style={{ margin: "50px 5%" }} onSubmit={handleSubmit}>
+          {isRegister && (
+            <div className='form-group'>
+              <input className='form-control' placeholder='Username' type='text' {...userName} />
+            </div>
+          )}
           <div className='form-group'>
             <input className='form-control' placeholder='Email' type='email' {...email} />
           </div>
           <div className='form-group'>
-            <input className='form-control' placeholder='******' type='password' {...password} />
+            <input
+              name='password'
+              className='form-control'
+              placeholder='******'
+              type='password'
+              {...password}
+            />
           </div>
           <div className='row'>
             <div className='col-md-6'>
               <div className='form-group'>
                 <button type='submit' className='btn btn-primary btn-block'>
                   {" "}
-                  Login{" "}
+                  {isRegister ? "Sign up" : "Login"}{" "}
                 </button>
               </div>
-            </div>
-            <div className='col-md-6 text-right'>
-              <a className='small' href='#'>
-                Forgot password?
-              </a>
             </div>
           </div>
         </form>

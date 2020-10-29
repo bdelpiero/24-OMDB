@@ -1,12 +1,13 @@
 import React from "react";
+import usersReducer from "../redux/reducers/users-reducer";
 
-export default ({ movie, handleButton }) => (
+export default ({ movie, handleButton, user }) => (
   <div id='single-movie'>
     {movie && (
       <div className='movie-info'>
         <h3>{movie.Title}</h3>
         <div className='movie-container'>
-          <img src={movie.Poster} className='img-thumbnail' />
+          <img src={movie.Poster} style={{ maxHeight: "550px" }} className='img-thumbnail' />
           <div className='content'>
             <h5>Director:</h5>
             <p>{movie.Director}</p>
@@ -18,9 +19,11 @@ export default ({ movie, handleButton }) => (
             <p>{movie.Metascore}</p>
             <h5>Review:</h5>
             <p>{movie.Plot}</p>
-            <button className='btn btn-primary' onClick={handleButton}>
-              + Add to Favourites
-            </button>
+            {user.id && (
+              <button className='btn btn-primary' onClick={handleButton}>
+                + Add to Favourites
+              </button>
+            )}
           </div>
         </div>
       </div>

@@ -1,27 +1,32 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
+import { UserContext } from "../index";
+import axios from "axios";
+
 import NavBar from "./NavBar.jsx";
 import SearchMoviesContainer from "../containers/SearchMoviesContainer";
 import SingleMovieContainer from "../containers/SingleMovieContainer";
-import FavsContainer from "../containers/FavsContainer";
-import Login from "../components/Login";
-import Register from "../components/Register";
+import LoginContainer from "../containers/LoginContainer";
+import RegisterContainer from "../containers/RegisterContainer";
 import SingleUserContainer from "../containers/SingleUserContainer";
 import UsersContainer from "../containers/UsersContainer";
-import axios from "axios";
-
 import HomeContainer from "../containers/HomeContainer";
 import UserFavourites from "./UserFavourites.jsx";
 
 export default () => {
-  // cheque la conexión con el back:
-  // const [users, setUsers] = React.useState("");
-  // React.useEffect(() => {
-  //   axios
-  //     .get("http://localhost:8080/api/users")
-  //     .then((res) => res.data)
-  //     .then((usersServer) => setUsers(usersServer));
-  // }, []);
+  const { setUser } = useContext(UserContext);
+
+  useEffect(() => {
+    axios
+      .get("/api/me")
+      .then((res) => res.data)
+      .then((user) => {
+        setUser(user);
+      })
+      .catch(({ response }) => {
+        console.log(response.status);
+      });
+  }, []);
   return (
     <div id='main'>
       <NavBar />
@@ -30,11 +35,10 @@ export default () => {
           <Route exact path='/' component={HomeContainer} />
           <Route exact path='/search' component={SearchMoviesContainer} />
           <Route path='/movies/:movieId' exact component={SingleMovieContainer} />
-          <Route path='/favs' component={FavsContainer} />
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/register' component={Register} />
-          <Route path='/user/:userId' component={SingleUserContainer} />
-          <Route path='/user/:userId/favs' component={UserFavourites} />
+          <Route path='/login' component={LoginContainer} />
+          <Route path='/register' component={RegisterContainer} />
+          <Route path='/users/:userId' component={SingleUserContainer} />
+          <Route path='/users/:userId/favs' component={UserFavourites} />
           <Route path='/users' component={UsersContainer} />
           <Redirect to='/' />
         </Switch>

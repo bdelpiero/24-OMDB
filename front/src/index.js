@@ -1,17 +1,24 @@
 // el inicio de la app
-import React from "react";
+import React, { useState, createContext } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route } from "react-router-dom";
 import Main from "./components/Main";
 import { Provider } from "react-redux";
-
 import store from "./redux/store.js";
 
-ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <Route path='/' component={Main} />
-    </BrowserRouter>
-  </Provider>,
-  document.getElementById("app")
-);
+export const UserContext = createContext();
+
+const Root = () => {
+  const [user, setUser] = useState({});
+  return (
+    <Provider store={store}>
+      <BrowserRouter>
+        <UserContext.Provider value={{ user, setUser }}>
+          <Route path='/' component={Main} />
+        </UserContext.Provider>
+      </BrowserRouter>
+    </Provider>
+  );
+};
+
+export default ReactDOM.render(<Root />, document.getElementById("app"));

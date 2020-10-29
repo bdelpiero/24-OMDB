@@ -1,5 +1,10 @@
 import axios from "axios";
-import { RECEIVE_USER, RECEIVE_USERS } from "../actions/users";
+import { RECEIVE_USER, RECEIVE_USERS, ADD_TO_USERS } from "../constants";
+
+export const addToUsers = (user) => ({
+  type: ADD_TO_USERS,
+  user,
+});
 
 const receiveUsers = (users) => ({
   type: RECEIVE_USERS,
@@ -12,9 +17,18 @@ const receiveUser = (user) => ({
 });
 
 export const fetchUsers = () => (dispatch) => {
-  // pedido axios al server (localhost 8080)
+  return axios
+    .get("/api/users")
+    .then((res) => res.data)
+    .then((users) => dispatch(receiveUsers(users)));
 };
 
-export const fetchUser = (userId) => (dispatch) => {
-  // pedido axios al server? o podemos hacerlo directo desde el array de users?
-};
+// export const addUser = (user) => (dispatch) => {
+//   console.log(user);
+//   return axios
+//     .post(`../api/users`, { user })
+//     .then((res) => res.data)
+//     .then((user) => {
+//       dispatch(addToUsers(user));
+//     });
+// };

@@ -6,6 +6,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
+  console.log("movies");
   switch (action.type) {
     case RECEIVE_MOVIE:
       return {

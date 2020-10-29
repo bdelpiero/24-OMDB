@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({ users, backToHome, userSearch }) => (
+export default ({ user, users, backToHome, userSearch }) => (
   <div>
     <div className='list-header'>
       <h4>Users: </h4>
@@ -19,9 +19,12 @@ export default ({ users, backToHome, userSearch }) => (
             <li
               className='list-group-item bg-dark d-flex justify-content-between align-items-center'
               key={user.id}>
-              <Link style={{ textDecoration: "none" }} to={`/user/${user.id}`}>
+              <Link style={{ textDecoration: "none" }} to={`/users/${user.id}`}>
                 {user.userName}
               </Link>
+              <span>
+                <img style={{ height: "50px" }} src={user.imgURI} />
+              </span>
             </li>
           );
         })}

@@ -1,12 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { fetchMovie } from "../redux/actions/movies";
-import { addToFavs } from "../redux/actions/favs";
+import { addMovie } from "../redux/actions/favs";
 import SingleMovie from "../components/SingleMovie";
+import { UserContext } from "../index";
 
 export default () => {
   const { movieId } = useParams();
+  const { user } = useContext(UserContext);
+  const history = useHistory();
 
   const currentMovie = useSelector((state) => state.movies.selected);
   const dispatch = useDispatch();
@@ -16,8 +19,8 @@ export default () => {
   }, []);
 
   const handleButton = () => {
-    dispatch(addToFavs(currentMovie));
+    dispatch(addMovie(currentMovie)).then(() => history.push(`/users/${user.id}/favs`));
   };
 
-  return <SingleMovie movie={currentMovie} handleButton={handleButton} />;
+  return <SingleMovie movie={currentMovie} handleButton={handleButton} user={user} />;
 };

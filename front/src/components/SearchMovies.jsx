@@ -9,7 +9,7 @@ export default ({ movies, backToSearch, handleClick, sortingKey }) => {
         <div className='table-buttons'>
           <div className='dropdown'>
             <button
-              class='btn btn-primary dropdown-toggle'
+              className='btn btn-primary dropdown-toggle'
               type='button'
               id='dropdownMenu2'
               data-toggle='dropdown'
@@ -17,11 +17,11 @@ export default ({ movies, backToSearch, handleClick, sortingKey }) => {
               aria-expanded='false'>
               {sortingKey || "Order By"}
             </button>
-            <div class='dropdown-menu' aria-labelledby='dropdownMenu2'>
-              <button class='dropdown-item' type='button' onClick={handleClick}>
+            <div className='dropdown-menu' aria-labelledby='dropdownMenu2'>
+              <button className='dropdown-item' type='button' onClick={handleClick}>
                 Title
               </button>
-              <button class='dropdown-item' type='button' onClick={handleClick}>
+              <button className='dropdown-item' type='button' onClick={handleClick}>
                 Year
               </button>
             </div>

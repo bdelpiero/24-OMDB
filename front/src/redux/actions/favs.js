@@ -16,8 +16,20 @@ const receiveFav = (fav) => ({
   fav,
 });
 
+export const addMovie = (movie) => (dispatch) => {
+  return axios
+    .post("../api/favs", { movie })
+    .then((res) => res.data)
+    .then((fav) => {
+      dispatch(addToFavs(fav));
+    });
+};
+
 export const fetchFavs = () => (dispatch) => {
-  // pedido axios al server (localhost 8080)
+  return axios
+    .get("/api/favs")
+    .then((res) => res.data)
+    .then((favs) => dispatch(receiveFavs(favs)));
 };
 
 export const fetchFav = (userId) => (dispatch) => {
