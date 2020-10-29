@@ -1,0 +1,95 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00b7ff;
+}
+
+form {
+  margin: 100px 20%;
+}
+/* 
+table {
+  margin-top: 100px;
+} */
+
+td img {
+  max-height: 100px;
+}
+
+.table-header,
+.list-header {
+  margin: 20px 0 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.table-header h4 {
+  margin-bottom: 0;
+  padding: 0;
+}
+.table-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+.table-buttons .dropdown {
+  margin-right: 10px;
+}
+
+.movie-info {
+  margin: 35px 10%;
+}
+
+.movie-container {
+  /* margin: 20px 10%; */
+  margin-top: 20px;
+  display: flex;
+}
+
+.movie-container .content {
+  flex: 3;
+  margin-left: 40px;
+  padding: 10px;
+  /* text-align: right; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.movie-container {
+  flex: 1;
+}
+.fa-trash {
+  color: white;
+}
+.login-register {
+  max-width: 350px;
+  height: 480;
+  margin: 100px auto;
+}
+
+.user-card {
+  margin: 50px 10%;
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.user-info img {
+  max-height: 250px;
+}
+
+.user-info .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.user-buttons button {
+  margin: auto 10px;
+  min-width: 100px;
+}
