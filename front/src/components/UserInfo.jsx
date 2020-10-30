@@ -1,4 +1,6 @@
 import React from "react";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
 export default ({ user, removeUser, isLoggedIn }) => (
   <div>
@@ -16,7 +18,13 @@ export default ({ user, removeUser, isLoggedIn }) => (
           <p>{user.age}</p>
           {isLoggedIn && (
             <div className='user-buttons'>
-              <button className='btn btn-primary'>Edit</button>
+              {/* <button className='btn btn-primary'>Edit</button> */}
+              <OverlayTrigger
+                key='top'
+                placement='top'
+                overlay={<Tooltip id='tooltip-top'>No llegué, perdón!</Tooltip>}>
+                <button className='btn btn-primary'>Edit</button>
+              </OverlayTrigger>
               <button className='btn btn-primary' onClick={() => removeUser()}>
                 Delete Account
               </button>
