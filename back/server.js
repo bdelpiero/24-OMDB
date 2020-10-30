@@ -9,6 +9,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const path = require("path");
 const User = require("./api/models/User");
 const FacebookStrategy = require("passport-facebook").Strategy;
+const facebookRouter = require("./api/routes/facebook");
 
 const app = express();
 const authAPI = require("./api/routes");
@@ -74,7 +75,6 @@ passport.use(
           if (!user) {
             return done(null, false); // user not found
           }
-          console.log("pasó");
           done(null, user);
         })
         .catch(done);
@@ -95,14 +95,8 @@ passport.deserializeUser(function (id, done) {
     .catch(done);
 });
 
-app.get("/auth/facebook", passport.authorize("facebook", { scope: ["email"] }));
-
-app.get(
-  "/auth/facebook/callback",
-  passport.authenticate("facebook", { successRedirect: "/", failureRedirect: "/api/login" })
-);
-
 // express routing
+app.use("/auth", facebookRouter);
 app.use("/api", authAPI);
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "./public", "index.html"));
