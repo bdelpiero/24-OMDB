@@ -67,9 +67,9 @@ passport.use(
     function (accessToken, refreshToken, profile, done) {
       const email = profile.emails[0].value;
       const userName = profile.name.givenName;
-      const id = profile.id.substring(0, 5);
+      // const id = profile.id.substring(0, 5);
       User.findOrCreate({
-        where: { userName: userName, email: email, id: +id },
+        where: { userName: userName, email: email },
       })
         .then((user) => {
           if (!user) {
@@ -83,6 +83,7 @@ passport.use(
 );
 
 passport.serializeUser(function (user, done) {
+  // console.log(user.id);
   const id = user.id ? user.id : user[0].dataValues.id;
   done(null, id);
 });
