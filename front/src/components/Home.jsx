@@ -1,14 +1,13 @@
 import React from "react";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 export default ({ data, handleInputChange, handleSubmit }) => {
   return (
-    <form onSubmit={handleSubmit}>
-      <div className='form-group row'>
-        <label htmlFor='inputTitle' className='col-sm-2 col-form-label'>
-          Title
-        </label>
-        <div className='col-sm-10'>
-          <input
+    <Form onSubmit={handleSubmit} className='search-form' style={{ maxWidth: "500px" }}>
+      <div className='form-subgroup'>
+        <Form.Group className='form-title'>
+          <Form.Control
             name='title'
             value={data.title}
             type='text'
@@ -16,44 +15,31 @@ export default ({ data, handleInputChange, handleSubmit }) => {
             id='inputTitle'
             placeholder='Title'
             onChange={handleInputChange}
+            onKeyDown={handleInputChange}
           />
-        </div>
-      </div>
-      <div className='form-group row'>
-        <label htmlFor='inputYear' className='col-sm-2 col-form-label'>
-          Year
-        </label>
-        <div className='col-sm-10'>
-          <input
-            name='year'
-            value={data.year}
-            type='text'
-            className='form-control'
-            id='inputYear'
-            placeholder='Year'
-            onChange={handleInputChange}
-          />
-        </div>
-      </div>
-      <div className='form-group row'>
-        <label htmlFor='selectPlot' className='col-sm-2 col-form-label'>
-          Plot
-        </label>
-        <div className='col-sm-10'>
-          <select name='type' value={data.type} id='selectType' onChange={handleInputChange}>
+        </Form.Group>
+
+        <Form.Group className='form-plot' style={{ maxWidth: "150px" }}>
+          <Form.Control
+            as='select'
+            name='type'
+            value={data.type}
+            id='selectType'
+            onChange={handleInputChange}>
             <option value='movie'>Movie</option>
             <option value='series'>Series</option>
             <option value='episode'>Episode</option>
-          </select>
-        </div>
+          </Form.Control>
+        </Form.Group>
       </div>
-      <div className='form-group row'>
-        <div className='col-sm-10'>
-          <button type='submit' className='btn btn-primary'>
-            Search
-          </button>
-        </div>
-      </div>
-    </form>
+
+      <Button
+        variant='warning'
+        type='submit'
+        style={{ color: "white", fontWeight: "600" }}
+        className='form-button'>
+        Search
+      </Button>
+    </Form>
   );
 };

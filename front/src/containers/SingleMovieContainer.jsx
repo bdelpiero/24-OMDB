@@ -18,9 +18,15 @@ export default () => {
     dispatch(fetchMovie(movieId));
   }, []);
 
+  const goBack = () => {
+    history.goBack();
+  };
+
   const handleButton = () => {
     dispatch(addMovie(currentMovie)).then(() => history.push(`/users/${user.id}/favs`));
   };
 
-  return <SingleMovie movie={currentMovie} handleButton={handleButton} user={user} />;
+  return (
+    <SingleMovie movie={currentMovie} handleButton={handleButton} user={user} goBack={goBack} />
+  );
 };

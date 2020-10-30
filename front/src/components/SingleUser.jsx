@@ -26,6 +26,11 @@ export default ({ user, favs, path, url, removeUser, removeFav, isLoggedIn, goTo
           render={() => <UserInfo user={user} removeUser={removeUser} isLoggedIn={isLoggedIn} />}
         />
         <Route
+          exact
+          path={`${path}`}
+          render={() => <UserInfo user={user} removeUser={removeUser} isLoggedIn={isLoggedIn} />}
+        />
+        <Route
           path={`${path}/favs`}
           render={() => (
             <UserFavourites

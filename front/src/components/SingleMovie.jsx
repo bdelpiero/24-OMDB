@@ -1,11 +1,16 @@
 import React from "react";
-import usersReducer from "../redux/reducers/users-reducer";
+import Button from "react-bootstrap/Button";
 
-export default ({ movie, handleButton, user }) => (
+export default ({ movie, handleButton, user, goBack }) => (
   <div id='single-movie'>
     {movie && (
       <div className='movie-info'>
-        <h3>{movie.Title}</h3>
+        <div className='movie-header'>
+          <h3>{movie.Title}</h3>
+          <Button className='header-button' onClick={goBack}>
+            Back To Previous
+          </Button>
+        </div>
         <div className='movie-container'>
           <img src={movie.Poster} style={{ maxHeight: "550px" }} className='img-thumbnail' />
           <div className='content'>

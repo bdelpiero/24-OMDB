@@ -8,8 +8,7 @@ import Home from "../components/Home";
 export default () => {
   const [data, setData] = useState({
     title: "",
-    year: "",
-    type: "",
+    type: "Movie",
   });
   const history = useHistory();
   const dispatch = useDispatch();

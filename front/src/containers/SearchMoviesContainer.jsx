@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import SearchMovies from "../components/SearchMovies.jsx";
@@ -11,7 +11,7 @@ export default () => {
   const backToSearch = () => {
     history.push("/");
   };
-  const handleClick = (e) => {
+  const sortItems = (e) => {
     setSortingKey(e.target.innerHTML);
   };
 
@@ -19,7 +19,7 @@ export default () => {
     <SearchMovies
       movies={movies}
       sortingKey={sortingKey}
-      handleClick={handleClick}
+      sortItems={sortItems}
       backToSearch={backToSearch}
     />
   );

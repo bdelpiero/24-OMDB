@@ -10,10 +10,10 @@ a {
 form {
   margin: 100px 20%;
 }
-/* 
-table {
-  margin-top: 100px;
-} */
+
+.users-form {
+  margin: 0;
+}
 
 td img {
   max-height: 100px;
@@ -58,16 +58,32 @@ td img {
   justify-content: flex-start;
   align-items: flex-start;
 }
-.movie-container {
-  flex: 1;
+
+@media (max-width: 600px) {
+  .movie-container {
+    flex-direction: column;
+    min-width: 350px;
+  }
 }
+
 .fa-trash {
   color: white;
 }
 .login-register {
-  max-width: 350px;
+  width: 350px;
+  /* min-width: 270px; */
   height: 480;
   margin: 100px auto;
+}
+
+@media (max-width: 400px) {
+  .login-register {
+    width: 250px;
+  }
+}
+
+.login-register-form {
+  margin: 40px 5%;
 }
 
 .user-card {
@@ -93,6 +109,13 @@ td img {
   margin: auto 10px;
   min-width: 100px;
 }
+.navbar {
+  background-color: black;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+}
 
 .nav-right {
   display: flex;
@@ -114,7 +137,51 @@ td img {
   }
 }
 .navbar-brand h3 {
+  color: white;
   font-weight: bold;
   padding: 0;
   margin-bottom: 0;
+}
+
+.search-form {
+  padding: 50px;
+  border-radius: 20px;
+  background-color: black;
+  min-width: 250px;
+  max-width: 600px;
+  margin: 130px auto;
+}
+
+.form-subgroup {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 560px) {
+  .form-subgroup {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.container {
+  margin-top: 50px;
+  min-width: 400px;
+}
+
+.icon:hover {
+  fill: turquoise;
+}
+
+.movie-header {
+  margin: 70px 0 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 350px;
+}
+.header-button {
+  min-width: 70px;
+  margin-left: 15px;
 }

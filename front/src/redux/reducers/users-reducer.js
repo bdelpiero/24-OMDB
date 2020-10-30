@@ -1,8 +1,7 @@
-import { RECEIVE_USER, RECEIVE_USERS, ADD_TO_USERS } from "../constants";
+import { RECEIVE_USERS, ADD_TO_USERS } from "../constants";
 
 const initialState = {
   list: [],
-  selected: {},
 };
 
 export default (state = initialState, action) => {
@@ -10,11 +9,6 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_USERS:
       return { ...state, list: [...state.list, action.user] };
-    case RECEIVE_USER:
-      return {
-        ...state,
-        selected: action.user,
-      };
     case RECEIVE_USERS:
       return {
         ...state,

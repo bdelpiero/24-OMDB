@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 
-export default ({ movies, backToSearch, handleClick, sortingKey }) => {
+export default ({ movies, backToSearch, sortItems, sortingKey }) => {
   return (
-    <div id='movies-table'>
+    <div id='movies-table' className='container'>
       <div className='table-header'>
         <h4>Movies found: </h4>
         <div className='table-buttons'>
           <DropdownButton id='dropdown-basic-button' title={sortingKey || "Order By"}>
-            <Dropdown.Item onClick={handleClick} href='#/action-1'>
+            <Dropdown.Item onClick={sortItems} href='#/action-1'>
               Year
             </Dropdown.Item>
-            <Dropdown.Item onClick={handleClick} href='#/action-2'>
+            <Dropdown.Item onClick={sortItems} href='#/action-2'>
               Metascore
             </Dropdown.Item>
           </DropdownButton>
@@ -28,13 +28,21 @@ export default ({ movies, backToSearch, handleClick, sortingKey }) => {
             <th></th>
             <th>Title</th>
             <th>Year</th>
-            <th>Metascore</th>
+            <th className='text-center'>Metascore</th>
           </tr>
         </thead>
         <tbody>
           {movies &&
             movies
-              .sort((a, b) => a[sortingKey] > b[sortingKey])
+              .map((movie) => {
+                movie.Year = movie.Year.substring(0, 4);
+                return movie;
+              })
+              .map((movie) => {
+                movie.Metascore = movie.Metascore == "N/A" ? "" : movie.Metascore;
+                return movie;
+              })
+              .sort((a, b) => b[sortingKey] - a[sortingKey])
               .map((movie) => (
                 <tr key={movie.imdbID}>
                   <td>
@@ -46,7 +54,7 @@ export default ({ movies, backToSearch, handleClick, sortingKey }) => {
                     </Link>
                   </td>
                   <td>{movie.Year}</td>
-                  <td>{movie.Metascore}</td>
+                  <td className='text-center'>{movie.Metascore}</td>
                 </tr>
               ))}
         </tbody>
