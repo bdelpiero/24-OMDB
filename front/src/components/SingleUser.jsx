@@ -5,7 +5,7 @@ import { Link, Route } from "react-router-dom";
 
 export default ({ user, favs, path, url, removeUser, removeFav, isLoggedIn, goToSearch }) => {
   return (
-    <div className='card text-center user-card'>
+    <div className='card text-center user-card' style={{ minWidth: "350px" }}>
       <div className='card-header bg-dark'>
         <ul className='nav nav-tabs card-header-tabs'>
           <li className='nav-item'>

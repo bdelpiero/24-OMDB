@@ -6,7 +6,7 @@ export default ({ userName = "", email, password, isRegister = false, handleSubm
       <article className='card-body'>
         <h4 className='card-title mb-4 mt-1 text-center'>{isRegister ? "Register" : "Login"}</h4>
         <p>
-          <a href='' className='btn btn-block btn-outline-primary'>
+          <a href='/auth/facebook' className='btn btn-block btn-outline-primary'>
             {" "}
             Login via facebook
           </a>

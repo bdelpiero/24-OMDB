@@ -47027,7 +47027,7 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
     className: "card-title mb-4 mt-1 text-center"
   }, isRegister ? "Register" : "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "",
+    href: "/auth/facebook",
     className: "btn btn-block btn-outline-primary"
   }, " ", "Login via facebook")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     onSubmit: handleSubmit,
@@ -47393,7 +47393,10 @@ __webpack_require__.r(__webpack_exports__);
       isLoggedIn = _ref.isLoggedIn,
       goToSearch = _ref.goToSearch;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card text-center user-card"
+    className: "card text-center user-card",
+    style: {
+      minWidth: "350px"
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-header bg-dark"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
@@ -48125,7 +48128,7 @@ __webpack_require__.r(__webpack_exports__);
   }, []); // in case someone tries to acces de URL without being logged in
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    axios__WEBPACK_IMPORTED_MODULE_5___default.a.get("/api/users")["catch"](function () {
+    axios__WEBPACK_IMPORTED_MODULE_5___default.a.get("/api/me")["catch"](function () {
       history.push("/register");
     });
   }, []);

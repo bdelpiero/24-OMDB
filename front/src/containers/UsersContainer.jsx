@@ -23,7 +23,7 @@ export default () => {
 
   // in case someone tries to acces de URL without being logged in
   useEffect(() => {
-    axios.get("/api/users").catch(() => {
+    axios.get("/api/me").catch(() => {
       history.push("/register");
     });
   }, []);

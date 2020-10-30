@@ -8,6 +8,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const path = require("path");
 const User = require("./api/models/User");
+const FacebookStrategy = require("passport-facebook").Strategy;
 
 const app = express();
 const authAPI = require("./api/routes");
@@ -54,8 +55,36 @@ passport.use(
   )
 );
 
+passport.use(
+  new FacebookStrategy(
+    {
+      clientID: "1236402420076401",
+      clientSecret: "9d1d18d4a1f461487e83ab2038a3ce58",
+      callbackURL: "http://localhost:3000/auth/facebook/callback",
+      profileFields: ["id", "emails", "name"], //This
+    },
+    function (accessToken, refreshToken, profile, done) {
+      const email = profile.emails[0].value;
+      const userName = profile.name.givenName;
+      const id = profile.id.substring(0, 5);
+      User.findOrCreate({
+        where: { userName: userName, email: email, id: +id },
+      })
+        .then((user) => {
+          if (!user) {
+            return done(null, false); // user not found
+          }
+          console.log("pasó");
+          done(null, user);
+        })
+        .catch(done);
+    }
+  )
+);
+
 passport.serializeUser(function (user, done) {
-  done(null, user.id);
+  const id = user.id ? user.id : user[0].dataValues.id;
+  done(null, id);
 });
 
 passport.deserializeUser(function (id, done) {
@@ -65,6 +94,13 @@ passport.deserializeUser(function (id, done) {
     })
     .catch(done);
 });
+
+app.get("/auth/facebook", passport.authorize("facebook", { scope: ["email"] }));
+
+app.get(
+  "/auth/facebook/callback",
+  passport.authenticate("facebook", { successRedirect: "/", failureRedirect: "/api/login" })
+);
 
 // express routing
 app.use("/api", authAPI);
