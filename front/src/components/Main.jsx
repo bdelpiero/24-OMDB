@@ -12,8 +12,7 @@ import SingleUserContainer from "../containers/SingleUserContainer";
 import UsersContainer from "../containers/UsersContainer";
 import HomeContainer from "../containers/HomeContainer";
 import UserFavourites from "./UserFavourites.jsx";
-
-import Button from "react-bootstrap/Button";
+// import EditUserContainer from "./containers/EditUserContainer";
 
 export default () => {
   const { setUser } = useContext(UserContext);
@@ -41,6 +40,7 @@ export default () => {
           <Route path='/register' component={RegisterContainer} />
           <Route path='/users/:userId' component={SingleUserContainer} />
           <Route path='/users/:userId/favs' component={UserFavourites} />
+          {/* <Route path='/users/:userId/edit' component={EditUserContainer} /> */}
           <Route path='/users' component={UsersContainer} />
           <Redirect to='/' />
         </Switch>

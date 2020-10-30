@@ -47087,7 +47087,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _containers_UsersContainer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../containers/UsersContainer */ "./src/containers/UsersContainer.jsx");
 /* harmony import */ var _containers_HomeContainer__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../containers/HomeContainer */ "./src/containers/HomeContainer.jsx");
 /* harmony import */ var _UserFavourites_jsx__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./UserFavourites.jsx */ "./src/components/UserFavourites.jsx");
-/* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-bootstrap/Button */ "./node_modules/react-bootstrap/esm/Button.js");
 
 
 
@@ -47100,7 +47099,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
+ // import EditUserContainer from "./containers/EditUserContainer";
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_index__WEBPACK_IMPORTED_MODULE_2__["UserContext"]),
@@ -48441,7 +48440,6 @@ var initialState = {
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  console.log("favs");
 
   switch (action.type) {
     case _constants__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_FAVS"]:
@@ -48510,7 +48508,6 @@ var initialState = {
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  console.log("movies");
 
   switch (action.type) {
     case _constants__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_MOVIE"]:
@@ -48565,7 +48562,6 @@ var initialState = {
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  console.log("users");
 
   switch (action.type) {
     case _constants__WEBPACK_IMPORTED_MODULE_0__["ADD_TO_USERS"]:

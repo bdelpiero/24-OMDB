@@ -9,10 +9,15 @@ router.get("/", (req, res, next) => {
 });
 
 router.delete("/:id", (req, res, next) => {
-  console.log(req.params.id);
   User.findByPk(req.params.id)
     .then((user) => user.destroy())
     .then(() => res.sendStatus(204))
+    .catch(next);
+});
+
+router.put("/:userId/edit", (req, res, next) => {
+  User.update(req.body, { where: { id: req.params.id } })
+    .then(() => res.sendStatus(201))
     .catch(next);
 });
 

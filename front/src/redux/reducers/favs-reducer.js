@@ -5,7 +5,6 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  console.log("favs");
   switch (action.type) {
     case RECEIVE_FAVS:
       return {

@@ -5,7 +5,6 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  console.log("users");
   switch (action.type) {
     case ADD_TO_USERS:
       return { ...state, list: [...state.list, action.user] };
