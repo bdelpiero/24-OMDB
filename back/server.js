@@ -13,6 +13,7 @@ const facebookRouter = require("./api/routes/facebook");
 
 const app = express();
 const authAPI = require("./api/routes");
+var port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.static("public"));
@@ -109,7 +110,7 @@ app.use((err, req, res, next) => {
 });
 
 db.sync({ force: true }).then(() =>
-  app.listen(3000, (req, res, next) => {
+  app.listen(port, (req, res, next) => {
     console.log("API on port 3000");
   })
 );
