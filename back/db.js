@@ -3,7 +3,11 @@ const config = require("../config/config.json");
 let db;
 
 if (config.use_env_variable) {
-  db = new Sequelize(process.env[config.use_env_variable]);
+  db = new Sequelize(process.env.DATABASE_URL, {
+    dialect: "postgres",
+    protocol: "postgres",
+    logging: true, //false
+  });
 } else {
   db = new Sequelize("postgres://localhost/omdb", { logging: false });
 }
