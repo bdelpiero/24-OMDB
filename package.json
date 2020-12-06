@@ -1,0 +1,20 @@
+{
+  "name": "24-omdb",
+  "version": "1.0.0",
+  "description": "## OMDB API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd back && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bdelpiero/24-OMDB.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bdelpiero/24-OMDB/issues"
+  },
+  "homepage": "https://github.com/bdelpiero/24-OMDB#readme"
+}
