@@ -47961,7 +47961,10 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
     placeholder: "******",
     type: "password"
   }, password))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "row text-center"
+    className: "row text-center",
+    style: {
+      justifyContent: "center"
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-md-6"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -48130,7 +48133,8 @@ __webpack_require__.r(__webpack_exports__);
     variant: "warning",
     onClick: handleLogout,
     style: {
-      color: "white"
+      color: "white",
+      cursor: "pointer"
     }
   }, "Logout")))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_3__["default"], {
     className: "nav-right"

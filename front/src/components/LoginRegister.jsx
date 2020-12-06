@@ -1,12 +1,22 @@
 import React from "react";
 
-export default ({ userName = "", email, password, isRegister = false, handleSubmit }) => {
+export default ({
+  userName = "",
+  email,
+  password,
+  isRegister = false,
+  handleSubmit,
+}) => {
   return (
     <div className='card login-register'>
       <article className='card-body'>
-        <h4 className='card-title mb-4 mt-1 text-center'>{isRegister ? "Register" : "Login"}</h4>
+        <h4 className='card-title mb-4 mt-1 text-center'>
+          {isRegister ? "Register" : "Login"}
+        </h4>
         <p>
-          <a href='/auth/facebook' className='btn btn-block btn-outline-primary'>
+          <a
+            href='/auth/facebook'
+            className='btn btn-block btn-outline-primary'>
             {" "}
             Login via facebook
           </a>
@@ -15,11 +25,21 @@ export default ({ userName = "", email, password, isRegister = false, handleSubm
         <form onSubmit={handleSubmit} className='login-register-form'>
           {isRegister && (
             <div className='form-group'>
-              <input className='form-control' placeholder='Username' type='text' {...userName} />
+              <input
+                className='form-control'
+                placeholder='Username'
+                type='text'
+                {...userName}
+              />
             </div>
           )}
           <div className='form-group'>
-            <input className='form-control' placeholder='Email' type='email' {...email} />
+            <input
+              className='form-control'
+              placeholder='Email'
+              type='email'
+              {...email}
+            />
           </div>
           <div className='form-group'>
             <input
@@ -30,9 +50,11 @@ export default ({ userName = "", email, password, isRegister = false, handleSubm
               {...password}
             />
           </div>
-          <div className='row text-center'>
+          <div className='row text-center' style={{ justifyContent: "center" }}>
             <div className='col-md-6'>
-              <button type='submit' className='d-inline-block btn btn-primary btn-lg  btn-block '>
+              <button
+                type='submit'
+                className='d-inline-block btn btn-primary btn-lg  btn-block '>
                 {" "}
                 {isRegister ? "Sign up" : "Login"}{" "}
               </button>

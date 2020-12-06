@@ -12,7 +12,10 @@ export default ({ user, handleLogout }) => (
         <h3>OMDb</h3>
       </Link>
     </Navbar.Brand>
-    <Navbar.Toggle aria-controls='responsive-navbar-nav' style={{ backgroundColor: "#FFC107" }} />
+    <Navbar.Toggle
+      aria-controls='responsive-navbar-nav'
+      style={{ backgroundColor: "#FFC107" }}
+    />
     <Navbar.Collapse id='responsive-navbar-nav'>
       <Nav className='mr-auto'>
         <Nav>
@@ -30,13 +33,19 @@ export default ({ user, handleLogout }) => (
             </Link>
           </Nav>
           <Nav>
-            <Link className='nav-link' to={`/users/${user.id}`} style={{ color: "white" }}>
+            <Link
+              className='nav-link'
+              to={`/users/${user.id}`}
+              style={{ color: "white" }}>
               My Account
             </Link>
           </Nav>
           <Nav className='nav-badge'>
             <h3>
-              <Badge variant='warning' onClick={handleLogout} style={{ color: "white" }}>
+              <Badge
+                variant='warning'
+                onClick={handleLogout}
+                style={{ color: "white", cursor: "pointer" }}>
                 Logout
               </Badge>
             </h3>
