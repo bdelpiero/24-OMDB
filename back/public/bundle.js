@@ -49226,7 +49226,7 @@ var fetchMovies = function fetchMovies(_ref) {
       _ref$type = _ref.type,
       type = _ref$type === void 0 ? "" : _ref$type;
   return function (dispatch) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://www.omdbapi.com/?apikey=fa7732fb&s=".concat(title, "&type=").concat(type)).then(function (res) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://www.omdbapi.com/?apikey=fa7732fb&s=".concat(title, "&type=").concat(type)).then(function (res) {
       return res.data;
     }).then(function (movies) {
       if (!movies.Search) {
@@ -49234,7 +49234,7 @@ var fetchMovies = function fetchMovies(_ref) {
       }
 
       movies = movies.Search.map(function (movie) {
-        return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://www.omdbapi.com/?apikey=fa7732fb&i=".concat(movie.imdbID));
+        return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://www.omdbapi.com/?apikey=fa7732fb&i=".concat(movie.imdbID));
       });
       return Promise.all(movies);
     }).then(function (movies) {
@@ -49248,7 +49248,7 @@ var fetchMovies = function fetchMovies(_ref) {
 };
 var fetchMovie = function fetchMovie(movieId) {
   return function (dispatch) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://www.omdbapi.com/?apikey=fa7732fb&i=".concat(movieId)).then(function (res) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://www.omdbapi.com/?apikey=fa7732fb&i=".concat(movieId)).then(function (res) {
       return res.data;
     }).then(function (movie) {
       return dispatch(receiveMovie(movie));

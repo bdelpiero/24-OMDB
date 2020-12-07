@@ -11,16 +11,20 @@ const receiveMovie = (movie) => ({
   movie,
 });
 
-export const fetchMovies = ({ title = "", year = "", type = "" }) => (dispatch) => {
+export const fetchMovies = ({ title = "", year = "", type = "" }) => (
+  dispatch
+) => {
   return axios
-    .get(`http://www.omdbapi.com/?apikey=fa7732fb&s=${title}&type=${type}`)
+    .get(`https://www.omdbapi.com/?apikey=fa7732fb&s=${title}&type=${type}`)
     .then((res) => res.data)
     .then((movies) => {
       if (!movies.Search) {
         dispatch(receiveMovies([]));
       }
       movies = movies.Search.map((movie) => {
-        return axios.get(`http://www.omdbapi.com/?apikey=fa7732fb&i=${movie.imdbID}`);
+        return axios.get(
+          `https://www.omdbapi.com/?apikey=fa7732fb&i=${movie.imdbID}`
+        );
       });
       return Promise.all(movies);
     })
@@ -32,7 +36,7 @@ export const fetchMovies = ({ title = "", year = "", type = "" }) => (dispatch) 
 
 export const fetchMovie = (movieId) => (dispatch) => {
   return axios
-    .get(`http://www.omdbapi.com/?apikey=fa7732fb&i=${movieId}`)
+    .get(`https://www.omdbapi.com/?apikey=fa7732fb&i=${movieId}`)
     .then((res) => res.data)
     .then((movie) => dispatch(receiveMovie(movie)))
     .catch((err) => console.log(err));
