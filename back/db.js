@@ -12,7 +12,7 @@ let db;
 //   db = new Sequelize("postgres://localhost/omdb", { logging: false });
 // }
 
-if (process.env.HEROKU_POSTGRESQL_BRONZE_URL) {
+if (process.env.DATABASE_URL) {
   console.log("app ejecutada con heroku");
   // the application is executed on Heroku ... use the postgres
   db = new Sequelize(process.env.HEROKU_POSTGRESQL_BRONZE_URL, {
