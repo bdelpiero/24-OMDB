@@ -13,6 +13,7 @@ let db;
 // }
 
 if (process.env.HEROKU_POSTGRESQL_BRONZE_URL) {
+  console.log("app ejecutada con heroku");
   // the application is executed on Heroku ... use the postgres
   db = new Sequelize(process.env.HEROKU_POSTGRESQL_BRONZE_URL, {
     dialect: "postgres",
@@ -22,10 +23,11 @@ if (process.env.HEROKU_POSTGRESQL_BRONZE_URL) {
     logging: true,
   });
 } else {
+  console.log("app ejecutada en local host");
   // the application is executed on the local machine ... use mysql
-  db = new Sequelize(
-    "postgres://<username>:<password>@<host>:  <port>/<database>",
-    { dialect: "postgres" }
-  );
+  db = new Sequelize("postgres://localhost/omdb", {
+    logging: false,
+    dialect: "postgres",
+  });
 }
 module.exports = db;
