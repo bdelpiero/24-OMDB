@@ -13,7 +13,10 @@ const facebookRouter = require("./api/routes/facebook");
 
 const app = express();
 const authAPI = require("./api/routes");
-var port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
+const callback = process.env.PORT
+  ? "https://omdb-bruno.herokuapp.com/"
+  : "http://localhost:3000/";
 
 app.use(cors());
 app.use(express.static("public"));
@@ -62,7 +65,7 @@ passport.use(
     {
       clientID: "1236402420076401",
       clientSecret: "9d1d18d4a1f461487e83ab2038a3ce58",
-      callbackURL: "http://localhost:3000/auth/facebook/callback",
+      callbackURL: `${callback}/auth/facebook/callback`,
       profileFields: ["id", "emails", "name"], //This
     },
     function (accessToken, refreshToken, profile, done) {
