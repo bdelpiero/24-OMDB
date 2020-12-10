@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 50px 0 0 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -69,21 +69,23 @@ td img {
 .fa-trash {
   color: white;
 }
+
 .login-register {
   width: 350px;
   /* min-width: 270px; */
   height: 480;
-  margin: 100px auto;
+  /* margin: 100px auto; */
+  /* border: black solid 5px; */
 }
 
 @media (max-width: 400px) {
   .login-register {
-    width: 250px;
+    width: 290px;
   }
 }
 
 .login-register-form {
-  margin: 40px 5%;
+  margin: 40px 5% 10px 5%;
 }
 
 .user-card {

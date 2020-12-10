@@ -12,7 +12,10 @@ export default ({ users, backToHome, userSearch }) => (
           style={{ minWidth: "110px" }}
         />
       </form>
-      <button className='btn btn-primary' onClick={backToHome} style={{ minWidth: "110px" }}>
+      <button
+        className='btn btn-danger'
+        onClick={backToHome}
+        style={{ minWidth: "110px" }}>
         Back to Home
       </button>
     </div>

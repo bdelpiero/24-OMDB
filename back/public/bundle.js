@@ -47930,15 +47930,22 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
       isRegister = _ref$isRegister === void 0 ? false : _ref$isRegister,
       handleSubmit = _ref.handleSubmit;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card login-register"
+    style: {
+      height: "95vh",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card login-register",
+    style: {
+      border: "black solid 10px"
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", {
     className: "card-body"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
     className: "card-title mb-4 mt-1 text-center"
-  }, isRegister ? "Register" : "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "/auth/facebook",
-    className: "btn btn-block btn-outline-primary"
-  }, " ", "Login via facebook")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+  }, isRegister ? "Register" : "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     onSubmit: handleSubmit,
     className: "login-register-form"
   }, isRegister && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -47963,14 +47970,15 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
   }, password))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row text-center",
     style: {
-      justifyContent: "center"
+      justifyContent: "center",
+      marginTop: 50
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-md-6"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "submit",
-    className: "d-inline-block btn btn-primary btn-lg  btn-block "
-  }, " ", isRegister ? "Sign up" : "Login", " "))))));
+    className: "d-inline-block btn btn-danger btn-lg  btn-block "
+  }, " ", isRegister ? "Sign up" : "Login", " ")))))));
 });
 
 /***/ }),
@@ -48191,6 +48199,7 @@ __webpack_require__.r(__webpack_exports__);
     className: "table-buttons"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_DropdownButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
     id: "dropdown-basic-button",
+    variant: "danger",
     title: sortingKey || "Order By"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Dropdown__WEBPACK_IMPORTED_MODULE_3__["default"].Item, {
     onClick: sortItems,
@@ -48199,7 +48208,7 @@ __webpack_require__.r(__webpack_exports__);
     onClick: sortItems,
     href: "#/action-2"
   }, "Metascore")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "btn btn-primary",
+    className: "btn btn-danger",
     onClick: backToSearch
   }, "Back to search"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
     className: "table table-hover table-dark"
@@ -48258,7 +48267,7 @@ __webpack_require__.r(__webpack_exports__);
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "movie-header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, movie.Title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    className: "header-button",
+    className: "header-button btn-danger",
     onClick: goBack
   }, "Back To Previous")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "movie-container"
@@ -48271,7 +48280,7 @@ __webpack_require__.r(__webpack_exports__);
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Director:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, movie.Director), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Writers:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, movie.Writer), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Stars:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, movie.Actors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Metascore:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, movie.Metascore), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Review:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, movie.Plot), user.id && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "btn btn-primary",
+    className: "btn btn-danger",
     onClick: handleButton
   }, "+ Add to Favourites")))));
 });
@@ -48380,7 +48389,7 @@ __webpack_require__.r(__webpack_exports__);
       removeFav = _ref.removeFav,
       goToSearch = _ref.goToSearch;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, isLoggedIn && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "btn btn-primary",
+    className: "btn btn-danger",
     style: {
       marginBottom: "15px"
     },
@@ -48465,9 +48474,9 @@ __webpack_require__.r(__webpack_exports__);
       id: "tooltip-top"
     }, "No llegu\xE9, perd\xF3n!")
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "btn btn-primary"
+    className: "btn btn-danger"
   }, "Edit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "btn btn-primary",
+    className: "btn btn-danger",
     onClick: function onClick() {
       return removeUser();
     }
@@ -48513,7 +48522,7 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
       minWidth: "110px"
     }
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "btn btn-primary",
+    className: "btn btn-danger",
     onClick: backToHome,
     style: {
       minWidth: "110px"

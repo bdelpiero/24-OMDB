@@ -7,12 +7,16 @@ export default ({ movie, handleButton, user, goBack }) => (
       <div className='movie-info'>
         <div className='movie-header'>
           <h3>{movie.Title}</h3>
-          <Button className='header-button' onClick={goBack}>
+          <Button className='header-button btn-danger' onClick={goBack}>
             Back To Previous
           </Button>
         </div>
         <div className='movie-container'>
-          <img src={movie.Poster} style={{ maxHeight: "550px" }} className='img-thumbnail' />
+          <img
+            src={movie.Poster}
+            style={{ maxHeight: "550px" }}
+            className='img-thumbnail'
+          />
           <div className='content'>
             <h5>Director:</h5>
             <p>{movie.Director}</p>
@@ -25,7 +29,7 @@ export default ({ movie, handleButton, user, goBack }) => (
             <h5>Review:</h5>
             <p>{movie.Plot}</p>
             {user.id && (
-              <button className='btn btn-primary' onClick={handleButton}>
+              <button className='btn btn-danger' onClick={handleButton}>
                 + Add to Favourites
               </button>
             )}

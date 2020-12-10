@@ -22,10 +22,12 @@ export default ({ user, removeUser, isLoggedIn }) => (
               <OverlayTrigger
                 key='top'
                 placement='top'
-                overlay={<Tooltip id='tooltip-top'>No llegué, perdón!</Tooltip>}>
-                <button className='btn btn-primary'>Edit</button>
+                overlay={
+                  <Tooltip id='tooltip-top'>No llegué, perdón!</Tooltip>
+                }>
+                <button className='btn btn-danger'>Edit</button>
               </OverlayTrigger>
-              <button className='btn btn-primary' onClick={() => removeUser()}>
+              <button className='btn btn-danger' onClick={() => removeUser()}>
                 Delete Account
               </button>
             </div>

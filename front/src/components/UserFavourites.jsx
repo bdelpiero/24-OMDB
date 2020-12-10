@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 export default ({ favs, isLoggedIn, removeFav, goToSearch }) => (
   <div>
     {isLoggedIn && (
-      <button className='btn btn-primary' style={{ marginBottom: "15px" }} onClick={goToSearch}>
+      <button
+        className='btn btn-danger'
+        style={{ marginBottom: "15px" }}
+        onClick={goToSearch}>
         + Add new movie
       </button>
     )}

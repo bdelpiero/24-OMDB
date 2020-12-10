@@ -9,7 +9,10 @@ export default ({ movies, backToSearch, sortItems, sortingKey }) => {
       <div className='table-header'>
         <h4>Movies found: </h4>
         <div className='table-buttons'>
-          <DropdownButton id='dropdown-basic-button' title={sortingKey || "Order By"}>
+          <DropdownButton
+            id='dropdown-basic-button'
+            variant='danger'
+            title={sortingKey || "Order By"}>
             <Dropdown.Item onClick={sortItems} href='#/action-1'>
               Year
             </Dropdown.Item>
@@ -17,7 +20,7 @@ export default ({ movies, backToSearch, sortItems, sortingKey }) => {
               Metascore
             </Dropdown.Item>
           </DropdownButton>
-          <button className='btn btn-primary' onClick={backToSearch}>
+          <button className='btn btn-danger' onClick={backToSearch}>
             Back to search
           </button>
         </div>
@@ -39,7 +42,8 @@ export default ({ movies, backToSearch, sortItems, sortingKey }) => {
                 return movie;
               })
               .map((movie) => {
-                movie.Metascore = movie.Metascore == "N/A" ? "" : movie.Metascore;
+                movie.Metascore =
+                  movie.Metascore == "N/A" ? "" : movie.Metascore;
                 return movie;
               })
               .sort((a, b) => b[sortingKey] - a[sortingKey])
@@ -49,7 +53,9 @@ export default ({ movies, backToSearch, sortItems, sortingKey }) => {
                     <img src={movie.Poster} alt=''></img>
                   </td>
                   <td>
-                    <Link style={{ textDecoration: "none" }} to={`/movies/${movie.imdbID}`}>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      to={`/movies/${movie.imdbID}`}>
                       {movie.Title}
                     </Link>
                   </td>

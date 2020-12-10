@@ -112,7 +112,7 @@ app.use((err, req, res, next) => {
   res.sendStatus(err);
 });
 
-db.sync({ force: true }).then(() =>
+db.sync({ force: false }).then(() =>
   app.listen(port, (req, res, next) => {
     console.log("API on port 3000");
   })
