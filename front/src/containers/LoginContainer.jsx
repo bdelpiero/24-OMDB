@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useInput } from "../utils/custom-hooks";
 import axios from "axios";
 import { useHistory, useRouteMatch } from "react-router";
@@ -12,12 +12,15 @@ export default ({}) => {
   */
   const email = useInput("email");
   const password = useInput("password");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const history = useHistory();
   const { setUser } = useContext(UserContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     axios
       .post("/api/login", {
         email: email.value,
@@ -26,10 +29,24 @@ export default ({}) => {
       .then(({ data }) => {
         setUser(data);
       })
-      .then(() => history.push("/"))
+      .then(() => {
+        setIsLoading(false);
+        setError(false);
+        history.push("/");
+      })
       .catch(({ response }) => {
+        setIsLoading(false);
+        setError(true);
         console.log(response.status);
       });
   };
-  return <LoginRegister email={email} password={password} handleSubmit={handleSubmit} />;
+  return (
+    <LoginRegister
+      email={email}
+      password={password}
+      handleSubmit={handleSubmit}
+      isLoading={isLoading}
+      error={error}
+    />
+  );
 };

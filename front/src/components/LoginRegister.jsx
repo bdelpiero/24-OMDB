@@ -1,4 +1,6 @@
 import React from "react";
+import Spinner from "react-bootstrap/Spinner";
+import Alert from "react-bootstrap/Alert";
 
 export default ({
   userName = "",
@@ -6,15 +8,11 @@ export default ({
   password,
   isRegister = false,
   handleSubmit,
+  isLoading,
+  error,
 }) => {
   return (
-    <div
-      style={{
-        height: "95vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}>
+    <div className='form-container'>
       <div
         className='card login-register'
         style={{ border: "black solid 10px" }}>
@@ -22,6 +20,11 @@ export default ({
           <h4 className='card-title mb-4 mt-1 text-center'>
             {isRegister ? "Register" : "Login"}
           </h4>
+          {error && (
+            <Alert variant='danger' style={{ textAlign: "center" }}>
+              Invalid email or password
+            </Alert>
+          )}
           {/* <p>
           <a
             href='/auth/facebook'
@@ -61,8 +64,15 @@ export default ({
             </div>
             <div
               className='row text-center'
-              style={{ justifyContent: "center", marginTop: 50 }}>
+              style={{ justifyContent: "center", marginTop: 30 }}>
               <div className='col-md-6'>
+                {isLoading && (
+                  <Spinner
+                    animation='border'
+                    variant='primary'
+                    style={{ marginBottom: 20 }}
+                  />
+                )}
                 <button
                   type='submit'
                   className='d-inline-block btn btn-danger btn-lg  btn-block '>

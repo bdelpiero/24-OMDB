@@ -1,6 +1,12 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 
+const checkLength = (str) => {
+  if (!str) return "-";
+  if (str.length > 180) return str.substring(0, 180) + "...";
+  return str;
+};
+
 export default ({ movie, handleButton, user, goBack }) => (
   <div id='single-movie'>
     {movie && (
@@ -19,15 +25,15 @@ export default ({ movie, handleButton, user, goBack }) => (
           />
           <div className='content'>
             <h5>Director:</h5>
-            <p>{movie.Director}</p>
+            <p>{checkLength(movie.Director)}</p>
             <h5>Writers:</h5>
-            <p>{movie.Writer}</p>
+            <p>{checkLength(movie.Writer)}</p>
             <h5>Stars:</h5>
-            <p>{movie.Actors}</p>
+            <p>{checkLength(movie.Actors)}</p>
             <h5>Metascore:</h5>
             <p>{movie.Metascore}</p>
             <h5>Review:</h5>
-            <p>{movie.Plot}</p>
+            <p>{checkLength(movie.Plot)}</p>
             {user.id && (
               <button className='btn btn-danger' onClick={handleButton}>
                 + Add to Favourites

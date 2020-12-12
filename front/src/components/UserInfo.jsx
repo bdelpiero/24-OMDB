@@ -18,15 +18,14 @@ export default ({ user, removeUser, isLoggedIn }) => (
           <p>{user.age}</p>
           {isLoggedIn && (
             <div className='user-buttons'>
-              {/* <button className='btn btn-primary'>Edit</button> */}
-              <OverlayTrigger
+              {/* <OverlayTrigger
                 key='top'
                 placement='top'
                 overlay={
                   <Tooltip id='tooltip-top'>No llegué, perdón!</Tooltip>
                 }>
-                <button className='btn btn-danger'>Edit</button>
-              </OverlayTrigger>
+                <button className='btn btn-danger edit'>Edit</button>
+              </OverlayTrigger> */}
               <button className='btn btn-danger' onClick={() => removeUser()}>
                 Delete Account
               </button>

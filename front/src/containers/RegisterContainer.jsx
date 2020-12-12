@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useInput } from "../utils/custom-hooks";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
@@ -8,20 +8,17 @@ import { UserContext } from "../index";
 import { addToUsers } from "../redux/actions/users";
 
 export default ({}) => {
-  /* useInput trae un objeto con tres propiedades.
-  Lo desestructuramos en el <input> y con eso
-  le agregamos los atributos name, onChange y value
-  */
-  const { setUser } = useContext(UserContext);
   const userName = useInput("userName");
   const email = useInput("email");
   const password = useInput("password");
   const history = useHistory();
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setIsLoading(true);
     axios
       .post("/api/register", {
         userName: userName.value,
@@ -30,8 +27,14 @@ export default ({}) => {
       })
       .then((res) => res.data)
       .then((user) => dispatch(addToUsers(user)))
-      .then(() => history.push("/login"))
+      .then(() => {
+        setIsLoading(false);
+        setError(false);
+        history.push("/login");
+      })
       .catch(({ response }) => {
+        setIsLoading(false);
+        setError(true);
         console.log(response.status);
       });
   };
@@ -43,6 +46,8 @@ export default ({}) => {
       password={password}
       isRegister={true}
       handleSubmit={handleSubmit}
+      isLoading={isLoading}
+      error={error}
     />
   );
 };
