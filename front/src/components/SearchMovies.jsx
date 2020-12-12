@@ -58,7 +58,11 @@ export default ({
               .map((movie) => (
                 <tr key={movie.imdbID}>
                   <td>
-                    <img src={movie.Poster} alt=''></img>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      to={`/movies/${movie.imdbID}`}>
+                      <img src={movie.Poster} alt=''></img>
+                    </Link>
                   </td>
                   <td className='movies-table-title align-middle'>
                     <Link
