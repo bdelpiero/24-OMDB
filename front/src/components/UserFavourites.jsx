@@ -16,12 +16,12 @@ export default ({ favs, isLoggedIn, removeFav, goToSearch }) => (
         favs.map((fav) => {
           return (
             <li
-              className='list-group-item bg-dark d-flex justify-content-between align-items-center'
+              className=' list-group-item d-flex justify-content-between align-items-center list-items'
               key={fav.imdbID}>
               <div className='d-flex justify-content-start align-items-center'>
                 <img src={fav.Poster} style={{ height: "70px" }} alt='No img' />
                 <Link
-                  style={{ textDecoration: "none", marginLeft: "10px" }}
+                  style={{ textDecoration: "none", marginLeft: "20px" }}
                   to={`/movies/${fav.imdbID}`}>
                   {fav.Title}
                 </Link>
@@ -34,7 +34,7 @@ export default ({ favs, isLoggedIn, removeFav, goToSearch }) => (
                     height='2em'
                     viewBox='0 0 16 16'
                     className='bi bi-trash icon'
-                    color='white'
+                    color='black'
                     fill='currentColor'
                     xmlns='http://www.w3.org/2000/svg'>
                     <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z' />

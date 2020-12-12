@@ -15,7 +15,7 @@ export default ({
 }) => {
   return (
     <div className='card text-center user-card'>
-      <div className='card-header bg-dark'>
+      <div className='card-header' style={{ backgroundColor: "black" }}>
         <ul className='nav nav-tabs card-header-tabs'>
           <li className='nav-item'>
             <Link className='nav-link' to={`${url}/info`}>
@@ -29,7 +29,7 @@ export default ({
           </li>
         </ul>
       </div>
-      <div className='card-body'>
+      <div className='card-body' style={{ border: "5px black solid" }}>
         <Route
           path={`${path}/info`}
           render={() => (

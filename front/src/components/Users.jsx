@@ -6,10 +6,10 @@ export default ({ users, backToHome, userSearch }) => (
     <div className='list-header'>
       <form className='form-group users-form' style={{ margin: 0 }}>
         <input
-          className='form-control  border-primary'
+          className='form-control '
           placeholder='Filter users'
           {...userSearch}
-          style={{ minWidth: "110px" }}
+          style={{ minWidth: "110px", border: "3px black solid" }}
         />
       </form>
       <button
@@ -24,18 +24,17 @@ export default ({ users, backToHome, userSearch }) => (
         users.map((user) => {
           return (
             <li
-              style={{ backgroundColor: "black", marginBottom: 5 }}
-              className='list-group-item d-flex justify-content-between align-items-center'
+              className='list-group-item  list-items d-flex justify-content-between align-items-center'
               key={user.id}>
-              <Link style={{ textDecoration: "none" }} to={`/users/${user.id}`}>
-                {user.userName}
-              </Link>
               <span>
                 <img
                   style={{ height: "50px", borderRadius: "50%" }}
                   src={user.imgURI}
                 />
               </span>
+              <Link style={{ textDecoration: "none" }} to={`/users/${user.id}`}>
+                {user.userName}
+              </Link>
             </li>
           );
         })}
